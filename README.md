@@ -31,17 +31,17 @@ The tasks for Base Mode are broken down further [on this Trello Board](https://t
 
 After starting up the server, the following routes should be available. You can test them with Postman.
 
-### GET PIZZA  
+### GET PIZZA
 
 `/api/pizza`
 
-**Returns** an array of objects with *id*, *name*, *description*, *price*, and *image_path*. 
+**Returns** an array of objects with _id_, _name_, _description_, _price_, and _image_path_.
 
 ### POST ORDER
 
 `/api/order`
 
-**Post Data** should be an object that contains user information, *customer_name*, *street_address*, *city*, *zip*, *type*, *total* and an array of pizza id's as object. 
+**Post Data** should be an object that contains user information, _customer_name_, _street_address_, _city_, _zip_, _type_, _total_ and an array of pizza id's as object.
 
 In Postman, select the Body tab, select Raw radio button, and then a blue dropdown appears and select JSON.
 
@@ -71,14 +71,13 @@ In Postman, select the Body tab, select Raw radio button, and then a blue dropdo
 
 **Returns** an array of orders.
 
-
 ## BASE REQUIREMENTS
 
 Your client has asked your team to build a pizza ordering system.
 
 ### ORDER - SELECT PIZZA
 
-When visiting [http://localhost:5173/](http://localhost:5173/) display all of the pizzas on the screen. Allow users to add or remove each pizza they would like to order. **For base mode, only allow the user to have one of each pizza in their cart.** Show the total cost of items in the cart in the top right of this page. 
+When visiting [http://localhost:5173/](http://localhost:5173/) display all of the pizzas on the screen. Allow users to add or remove each pizza they would like to order. **For base mode, only allow the user to have one of each pizza in their cart.** Show the total cost of items in the cart in the top right of this page.
 
 This page should have a next button that brings the user to the **enter order details page**.
 
@@ -86,7 +85,7 @@ This page should have a next button that brings the user to the **enter order de
 
 ### ORDER - ENTER CUSTOMER INFORMATION
 
-Collect user information, *name*, *street address*, *city* and *zip*. This page should have an option to select pickup vs. delivery. The total cost of the order should appear in the top right of this page. This page should have a next button that brings the user to the **checkout** page.
+Collect user information, _name_, _street address_, _city_ and _zip_. This page should have an option to select pickup vs. delivery. The total cost of the order should appear in the top right of this page. This page should have a next button that brings the user to the **checkout** page.
 
 ![Select Pizza View](wireframes/screen-two.png)
 
@@ -102,7 +101,6 @@ This page **should not** appear in the navigation bar. Eventually the client wou
 
 ![Select Pizza View](wireframes/screen-admin.png)
 
-
 ## STRETCH GOALS
 
 - Improve the styling of the app using Material-UI cards, buttons, nav bar and icons.
@@ -111,3 +109,31 @@ This page **should not** appear in the navigation bar. Eventually the client wou
 - Add pictures to the `public/images` folder and update the image url for each pizza in the database.
 - Add a button on the orders page to track delivery status.
 - Allow admins to click on an order and see all of the details for that order (which pizzas were a part of that particular order). For the details of the order with `id` of `1`, it will be available to anyone with the url [http://localhost:5173/order/1](http://localhost:5173/order/1). This route is not built on the server, so you will need to create it.
+
+- [ ] Assign out tasks
+- [ ] create database ‘pizza_parlor’
+  - [ ] use database.sql code to:
+    - [ ] Create “orders” table
+    - [ ] Create “line_item” table
+
+Screens:
+
+- [ ] Display pizza options
+- [ ] user information form
+- [ ] checkout screen
+- [ ] admin screen
+
+DOM Functionality:
+
+- [ ] Display all pizza options (GET)
+
+- [ ] Add pizza to cart (post @ api/order)
+
+- [ ] List pizza components using a List component
+- [ ] Create pizza DIV w/image, description, price, purchase status
+- [ ] Global state of price: updates at each add or remove status change
+
+Global States:
+
+- [ ] Customer info
+- [ ] Current pizzas
