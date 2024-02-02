@@ -24,7 +24,7 @@ function PizzaList() {
     <>
       <h2>Step 1: Select Your Pizza</h2>
       {pizzaList.map((pizza) => (
-        <PizzaCard key={pizza.id} />
+        <PizzaCard key={pizza.id} pizza={pizza} />
       ))}
       ;
     </>
