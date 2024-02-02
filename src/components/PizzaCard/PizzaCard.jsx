@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PizzaCard(pizza) {
+function PizzaCard({ pizza }) {
   return (
     <div>
       <div className="imgContainer">

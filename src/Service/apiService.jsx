@@ -1,8 +1,6 @@
 import React from 'react';
-import 'axios';
-
-const BASE_URL = 'http://localhost:5001';
+import axios from 'axios';
 
 export const getPizzas = () => {
-  return axios.get(`${BASE_URL}/api/pizza`);
+  return axios.get('/api/pizza');
 };
