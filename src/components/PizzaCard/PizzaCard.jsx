@@ -11,6 +11,14 @@ function PizzaCard({ pizza }) {
     });
   }
 
+  function removeFromCart() {
+    console.log('removing');
+    dispatch({
+      type: 'REMOVE_FROM_CART',
+      payload: pizza,
+    });
+  }
+
   return (
     <div>
       <div className="imgContainer">
@@ -24,6 +32,7 @@ function PizzaCard({ pizza }) {
         <h3>{pizza.price}</h3>
       </div>
       <button onClick={addToCart}>Add Pizza</button>
+      <button onClick={removeFromCart}>Remove Pizza</button>
     </div>
   );
 }
