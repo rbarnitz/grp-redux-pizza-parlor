@@ -10,9 +10,17 @@ const pizzaListReducer = (state = [], action) => {
   return state;
 };
 
+const addPizzaReducer = (state = [], action) => {
+  if (action.type === 'ADD_TO_CART') {
+    return [...state, action.payload];
+  }
+  return state;
+};
+
 const store = createStore(
   combineReducers({
-    pizzaListReducer, // 👈 Be sure to replace this, too!
+    pizzaListReducer,
+    addPizzaReducer, // 👈 Be sure to replace this, too!
   }),
   applyMiddleware(logger)
 );
