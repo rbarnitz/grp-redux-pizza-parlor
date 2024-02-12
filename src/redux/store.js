@@ -16,7 +16,7 @@ const addPizzaReducer = (state = [], action) => {
       return [...state, action.payload];
     case 'REMOVE_FROM_CART':
       // Filter out the pizza with the specified payload
-      return [...state, !action.payload];
+      return state.filter((pizza) => pizza !== !action.payload);
     default:
       return state;
   }
