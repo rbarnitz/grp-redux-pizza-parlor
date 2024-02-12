@@ -13,6 +13,8 @@ const pizzaListReducer = (state = [], action) => {
 const addPizzaReducer = (state = [], action) => {
   if (action.type === 'ADD_TO_CART') {
     return [...state, action.payload];
+  } else if (action.type === 'REMOVE _FROM_CART') {
+    return [...state, !action.payload];
   }
   return state;
 };
