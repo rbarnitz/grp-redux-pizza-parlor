@@ -1,15 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PizzaCard from '../PizzaCard/PizzaCard';
 import { getPizzas } from '../../Service/apiService';
 import 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 
 function PizzaList() {
-  const [pizzaList, setPizzaList] = useState([]);
+  const pizzaList = useSelector((state) => state.pizzaListReducer);
+
+  const dispatch = useDispatch();
 
   const fetchPizzas = () => {
     getPizzas()
       .then((response) => {
-        setPizzaList(response.data);
+        dispatch({
+          type: 'SET_PIZZA_LIST',
+          payload: response.data,
+        });
       })
       .catch((error) => {
         console.error('Error fetching the pizzas: ', error);
@@ -23,8 +29,8 @@ function PizzaList() {
   return (
     <>
       <h2>Step 1: Select Your Pizza</h2>
-      {pizzaList.map((pizza) => (
-        <PizzaCard key={pizza.id} pizza={pizza} />
+      {pizzaList.map((pizza, index) => (
+        <PizzaCard key={index} pizza={pizza} />
       ))}
       ;
     </>
