@@ -1,8 +1,16 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function PizzaCard({ pizza }) {
   const dispatch = useDispatch();
+
+  //to toggle remove pizza
+  //make boolean  variable to check if pizza is in cart
+  const pizzaCart = useSelector((state) => state.addPizzaReducer);
+
+  //check if pizza is in the current cart.
+  //.some() checks the entire array & returns true if array matches'
+  const inCart = pizzaCart.some((cartItem) => cartItem.id === pizza.id);
 
   function addToCart() {
     dispatch({
