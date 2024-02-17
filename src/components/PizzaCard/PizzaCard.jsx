@@ -1,8 +1,16 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function PizzaCard({ pizza }) {
   const dispatch = useDispatch();
+
+  // Store the pizza cart status as a boolean in a variable
+  const pizzaCart = useSelector((state) => state.addPizzaReducer);
+
+  // Check if the current Pizza is in the cart using the .some() method
+  // .some() will check the entire array and return true if any element in the array matches
+  // the given function
+  const inCart = pizzaCart.some((cartItem) => cartItem.id === pizza.id);
 
   function addToCart() {
     dispatch({
@@ -31,8 +39,11 @@ function PizzaCard({ pizza }) {
       <div>
         <h3>{pizza.price}</h3>
       </div>
-      <button onClick={addToCart}>Add Pizza</button>
-      <button onClick={removeFromCart}>Remove Pizza</button>
+      {inCart ? (
+        <button onClick={removeFromCart}>Remove Pizza</button>
+      ) : (
+        <button onClick={addToCart}>Add Pizza</button>
+      )}
     </div>
   );
 }
