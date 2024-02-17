@@ -137,3 +137,52 @@ Global States:
 
 - [ ] Customer info
 - [ ] Current pizzas
+
+Pizza Cart steps:
+Create pizzaCart reducer
+Send current cart pizzas to global state
+update price in header with each pizza
+change add to remove
+
+Create pizzaCart reducer for new pizza
+Take entire pizza info, dispatch to reducer
+<button type="submit">Submit</button>
+
+        <form onSubmit={submit}>
+
+      Add useDispatch
+        create dispatch:
+            const dispatch = useDispatch();
+
+function addToCart() {
+type: 'ADD_PIZZA_CART'
+payload: pizza
+
+      pizza.name, pizza.description, pizza.price
+
+}
+
+Create Header
+<Header />
+
+import useSelector
+
+const pizzaPrice = useSelector((state) => state.pizza.price)
+
+pizzaTotal += pizzaPrice
+
+Add Icon
+
+Read reducer with useSelector
+
+test:
+
+const addPizzaReducer = (state = [], action) => {
+switch (action.type) {
+case 'ADD_TO_CART':
+return[...state, action.payload];
+
+case 'REMOVE_FROM_CART':
+// Logic to handle removing item from the cart
+break;
+}
