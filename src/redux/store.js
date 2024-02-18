@@ -22,10 +22,18 @@ const addPizzaReducer = (state = [], action) => {
   }
 };
 
+const customerInfoReducer = (state = [], action) => {
+  if (action.type === 'ADD_CUSTOMER_INFO') {
+    return action.payload;
+  }
+  return state;
+};
+
 const store = createStore(
   combineReducers({
     pizzaListReducer,
-    addPizzaReducer, // 👈 Be sure to replace this, too!
+    addPizzaReducer,
+    customerInfoReducer, // 👈 Be sure to replace this, too!
   }),
   applyMiddleware(logger)
 );
