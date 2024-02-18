@@ -13,7 +13,7 @@ function Header() {
   return (
     <header className="App-header">
       <h1 className="App-title">Prime Pizza</h1>
-      <p>Total: {pizzaTotal}</p>
+      <p>Total: ${pizzaTotal.toFixed(2)}</p>
     </header>
   );
 }

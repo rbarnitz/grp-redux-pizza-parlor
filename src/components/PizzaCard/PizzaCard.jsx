@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 function PizzaCard({ pizza }) {
   const dispatch = useDispatch();
 
-  //to toggle remove pizza
-  //make boolean  variable to check if pizza is in cart
+  // Store the pizza cart status as a boolean in a variable
   const pizzaCart = useSelector((state) => state.addPizzaReducer);
 
-  //check if pizza is in the current cart.
-  //.some() checks the entire array & returns true if array matches'
+  // Check if the current Pizza is in the cart using the .some() method
+  // .some() will check the entire array and return true if any element in the array matches
+  // the given function
   const inCart = pizzaCart.some((cartItem) => cartItem.id === pizza.id);
 
   function addToCart() {
@@ -28,9 +28,9 @@ function PizzaCard({ pizza }) {
   }
 
   return (
-    <div>
+    <div className="pizzaItem">
       <div className="imgContainer">
-        <img src={pizza.image_path} />
+        <img src={pizza.image_path} className="pizzaImage" />
       </div>
       <div className="pizza-title-container">
         <h2>{pizza.name}</h2>
@@ -39,8 +39,11 @@ function PizzaCard({ pizza }) {
       <div>
         <h3>{pizza.price}</h3>
       </div>
-      <button onClick={addToCart}>Add Pizza</button>
-      <button onClick={removeFromCart}>Remove Pizza</button>
+      {inCart ? (
+        <button onClick={removeFromCart}>Remove Pizza</button>
+      ) : (
+        <button onClick={addToCart}>Add Pizza</button>
+      )}
     </div>
   );
 }
