@@ -28,9 +28,9 @@ function PizzaCard({ pizza }) {
   }
 
   return (
-    <div>
+    <div className="pizzaItem">
       <div className="imgContainer">
-        <img src={pizza.image_path} />
+        <img src={pizza.image_path} className="pizzaImage" />
       </div>
       <div className="pizza-title-container">
         <h2>{pizza.name}</h2>

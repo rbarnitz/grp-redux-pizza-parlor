@@ -3,6 +3,7 @@ import PizzaCard from '../PizzaCard/PizzaCard';
 import { getPizzas } from '../../Service/apiService';
 import 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+import './PizzaList.css';
 
 function PizzaList() {
   const pizzaList = useSelector((state) => state.pizzaListReducer);
@@ -29,10 +30,15 @@ function PizzaList() {
   return (
     <>
       <h2>Step 1: Select Your Pizza</h2>
-      {pizzaList.map((pizza, index) => (
-        <PizzaCard key={index} pizza={pizza} />
-      ))}
-      ;
+      <div className="pizzaContainer">
+        {pizzaList.map((pizza, index) => (
+          <PizzaCard key={index} pizza={pizza} />
+        ))}
+      </div>
+
+      <div>
+        <button>Next</button>
+      </div>
     </>
   );
 }
